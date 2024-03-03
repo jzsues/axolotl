@@ -418,8 +418,10 @@ class ShareGPTPromptTokenizingStrategy(PromptTokenizingStrategy):
                 elif role == "":
                     turn = content
                     # this is only ever the first part, should include the bos token and the user query
+                    # fix gemma instruct format
+                    strip_bos_token = turn.startswith('<bos>')
                     res = self._tokenize(
-                        turn, add_eos_token=False, strip_bos_token=False
+                        turn, add_eos_token=False, strip_bos_token=strip_bos_token
                     )
                     if self.train_on_inputs:
                         labels = copy.deepcopy(res["input_ids"])

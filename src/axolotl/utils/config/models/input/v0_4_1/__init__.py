@@ -491,7 +491,7 @@ class AxolotlInputConfig(
     max_memory: Optional[Union[int, str]] = None
     gpu_memory_limit: Optional[Union[int, str]] = None
 
-    chat_template: Optional[Union[Literal["chatml", "inst"], ChatTemplate]] = None
+    chat_template: Optional[Union[Literal["chatml", "inst", "gemma"], ChatTemplate]] = None
     default_system_message: Optional[str] = None
 
     # INTERNALS - document for now, generally not set externally

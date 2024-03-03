@@ -1,6 +1,5 @@
 """Module for tokenization utilities"""
 
-
 import logging
 
 from termcolor import colored
@@ -22,6 +21,8 @@ def check_example_labels(example, tokenizer, text_only=False):
     # You can compare the input_ids and labels element-wise
     # Remember to ignore positions with IGNORE_TOKEN_ID (if you use it) or attention_mask equal to 0
     colored_tokens = []
+    decoded_inputs = tokenizer.decode(input_ids, add_special_tokens=False)
+    print(f'input str: {decoded_inputs}\n')
     for _, (input_id, label_id) in enumerate(zip(input_ids, labels)):
         decoded_input_token = tokenizer.decode(input_id)
         # Choose the color based on whether the label has the ignore value or not

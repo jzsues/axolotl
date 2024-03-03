@@ -20,6 +20,7 @@ class PromptStyle(Enum):
     INSTRUCT = "instruct"
     CHAT = "chat"
     CHATML = "chatml"
+    GEMMA = "gemma"
 
 
 class Prompter:

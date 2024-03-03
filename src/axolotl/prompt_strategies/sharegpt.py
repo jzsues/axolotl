@@ -19,6 +19,16 @@ def register_chatml_template(system_message=None):
             sep="<|im_end|>",
         )
     )
+    register_conv_template(
+        Conversation(
+            name="gemma",
+            system_message="<bos>",
+            roles=("<start_of_turn>user\n", "<start_of_turn>model\n"),
+            sep_style=SeparatorStyle.NO_COLON_SINGLE,
+            sep="<end_of_turn>\n",
+            stop_str="<end_of_turn>",
+        ), override=True
+    )
 
 
 def load(tokenizer, cfg, ds_cfg: Optional[Dict[str, Any]] = None):
